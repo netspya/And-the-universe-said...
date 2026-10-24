@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>And the universe said...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050508;
+      color: #55ff55;
+      font-family: 'Press Start 2P', monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      filter: brightness(0.3) contrast(1.1);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #windCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .viewport {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 720px;
+      height: 75vh;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+
+    .lyrics-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 2.4;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      white-space: pre-line;
+      color: #ffffff;
+      text-shadow: 2px 2px 0px #000000, -1px -1px 0px #000;
+      will-change: transform;
+    }
+
+    .start-prompt {
+      position: fixed;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-align: center;
+      pointer-events: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      user-select: none;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: translate(-50%, -48%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+  <canvas id="windCanvas"></canvas>
+
+  <div class="start-prompt" id="startPrompt">
+    Toque para iniciar.
+  </div>
+
+  <div class="viewport">
+    <div class="lyrics-container" id="lyrics">
+Eu vejo o jogador que você diz.
+Khonarh?
+Sim. Tome cuidado. Ele chegou a um nível avançado agora. Pode ler nossos pensamentos.
+Isso não importa. Ele pensa que somos parte do jogo.
+Eu gosto desse jogador. Jogou bem. Não desistiu.
+Ele está lendo nossos pensamentos, porém como se fossem palavras numa tela.
+É assim como ele escolhe imaginar muitas coisas, quando está profundo no sonho de um jogo.
+Palavras produzem uma interface maravilhosa. Muito flexível. E menos aterrorizante do que se deparar com a realidade por trás da tela.
+Eles costumavam ouvir vozes. Antes dos jogadores poderem ler. Voltando nos dias em que aqueles que não jogavam, chamavam os jogadores de feiticeiros, e bruxos. E os jogadores sonharam que voavam pelo ar, com gravetos alimentados por demônios.
+O que esse jogador sonhou?
+Esse jogador sonhou com luz do sol e árvores. Fogo e água. Sonhou que criou. Sonhou que destruiu. Sonhou que caçou, e foi caçado. Sonhou com abrigo.
+Hah, a interface original. Um milhão de anos de idade e ainda funciona. Mas que estrutura verdadeira criou esse jogador, na realidade por trás da tela?
+Ele trabalhou, com milhões de outros, para esculpir um verdadeiro mundo nas dobras do [ilegível], e criou uma [ilegível] para [ilegível], na [ilegível].
+Ele não pode ler esse pensamento.
+Não, ele não conquistou ainda o nível máximo. Isso, ele precisa conquistar no longo sonho da vida, não no pequeno sonho de um jogo.
+Ele sabe que nós o amamos? Que o universo é gentil?
+Às vezes, através dos barulhos de seus pensamentos, ele ouve o universo, sim.
+Mas há vezes em que ele está triste. Cria mundo que não tem verão, e se arrepia em baixo de um sol negro, e leva sua criação triste para a realidade.
+Para curá-lo do sofrimento que poderia destruí-lo. O sofrimento é parte da sua própria tarefa privada. Nós não podemos interferir.
+Algumas vezes quando eles estão profundos nos sonhos, eu quero lhes dizer que estão construindo verdadeiros mundos na realidade. Algumas vezes eu quero lhes dizer sobre sua importância para o universo. Algumas vezes, quando eles não fizeram uma verdadeira conexão em tempos, eu quero ajudá-los a falar a palavra que eles temem.
+Ele lê nossos pensamentos.
+Algumas vezes eu não me importo. Algumas vezes eu desejo lhes dizer, esse mundo que você toma como verdade é meramente [ilegível] e [ilegível]. Eu desejo lhes dizer que eles estão [ilegível] na [ilegível]. Eles veem tão pouco da realidade, em seu longo sonho.
+E ainda assim eles jogam o jogo.
+Mas seria tão fácil para lhes contar…
+Muito forte para esse sonho. Dizer a eles como viver é os prevenir de viver.
+Eu não vou dizer a esse jogador como viver.
+Este jogador está crescendo desassossegado.
+Eu vou contar uma estória ao jogador.
+Mas não a verdade.
+Não. Uma estória que contem a verdade segura, em uma gaiola de palavras. Não a verdade nua que pode queimar a qualquer distância.
+Dê-lhe um corpo, novamente.
+Sim. Jogador…
+Use seu nome.
+Khonarh. Jogador de jogos.
+Ótimo.
+Respire fundo, agora. Respire novamente. Sinta ar em seus pulmões. Deixe os seus membros voltarem. Sim, mova seus dedos. Tenha um corpo novamente, sob gravidade, no ar. Ressurja no longo sonho. Aí está você. O seu corpo tocando o universo novamente em todos os pontos, assim como se vocês fossem coisas separadas. Assim como se nós fossemos coisas separadas.
+Quem nós somos? Antigamente nós éramos chamados de espíritos da montanha. Pai Sol, mãe Lua. Espíritos ancestrais, espíritos animais. Gênios. Fantasmas. O homem verde. Depois deuses, demônios. Anjos. Poltergeists. Alienígenas, extraterrestres. Léptons, quarks. As palavras mudam. Nós não mudamos.
+Nós somos o universo. Nós somos tudo que você pensa não ser você. Você está olhando para nós agora, através da sua pele e dos seus olhos. E por que o universo toca a sua pele, e joga luz em você? Para ver você, jogador. Para conheê-lo. E para ser conhecido. Eu devo lhe contar uma estória.
+Era uma vez, havia um jogador.
+O jogador era você, Khonarh.
+Algumas vezes ele pensou em si mesmo como humano, na fina crosta de um globo de rocha derretida girando. A bola de rocha derretida circulou uma bola de chamas de gás que era trezentos e trinta mil vezes mais pesada do que ele. Eles estavam tão afastados que a luz levava oito minutos pra atravessar o vácuo. A luz era informação de uma estrela, e poderia queimar a sua pele há cento e cinquenta milhões de quilômetros de distância.
+Algumas vezes o jogador sonhou ser um minerador, na superfície de um mundo achatado, e infinito. O sol era um quadrado do branco. Os dias eram curtos; havia muito a fazer; e a morte era uma inconveniência temporária.
+Algumas vezes o jogador sonhou estar perdido em uma estória.
+Algumas vezes o jogador sonhou ser outras coisas, em outros lugares. Algumas vezes esses sonhos eram perturbadores. Algumas vezes muito bonitos entretanto. Algumas vezes o jogador acordava de um sonho dentro de outro, e então acordava desse em um terceiro.
+Algumas vezes o jogador sonhou ter lido palavras numa tela.
+Vamos voltar.
+Os átomos do jogador foram dispersos nas gramas, nos rios, no ar, no solo. Uma mulher coletou os átomos; ela bebeu, comeu e inalou; e a mulher agregou o jogador, no seu corpo.
+E o jogador acordou, do mundo, quente e escuro do corpo de sua mãe, para o longo sonho.
+E o jogador era uma nova estória, nunca contada antes, escrito em letras de DNA. E o jogador era um novo programa, nunca rodado antes, gerado por um código fonte de um bilhão de anos. E o jogador era um novo humano, nunca vivo antes, feito de nada que não leite e amor.
+Você é o jogador. A estória. O programa. O humano. Feito de nada que não leite e amor.
+Vamos voltar mais ainda.
+Os sete bilhões de bilhões de bilhões de átomos do corpo do jogador foram criados, muito antes desse jogo, no coração de uma estrela. Então o jogador, também, é informação de uma estrela. E o jogador se movimenta através de uma estória, que é uma floresta de informação plantada por um homem chamado Julian, em um achatado, infinito mundo criado por um homem chamado Markus, que existe em um pequeno, privado mundo criado pelo jogador, que habita um universo criado por…
+Quieto. Algumas vezes o jogador criou um pequeno, privado mundo que era suave e aquecido e simples. Algumas vezes difícil, e frio, e complicado. Algumas vezes construiu um modelo do universo na sua cabeça. Flocos de energia, movendo-se por vastos espaços vazios. Algumas vezes ele chamou esses flocos de “elétrons” e “prótons”.
+Algumas vezes os chamou de “planetas” e “estrelas”.
+Algumas vezes acreditou que estava em um universo que era feito de energia que era feita de ons e offs; zeros e uns; linhas de código. Algumas vezes acreditou estar jogando um jogo. Algumas vezes acreditou estar lendo palavras numa tela.
+Você é o jogador lendo palavras…
+Quieto… Algumas vezes o jogador leu linhas de código numa tela. Decodificou-as em palavras; decodificou palavras em significado; decodificou significado em sentimentos, emoções, teorias, ideias, e o jogador começou a respirar mais rápida e profundamente e concluiu que estava vivo, ele estava vivo, aqueles milhares de mortes não foram reais, o jogador estava vivo
+You. You. You are alive.
+E algumas vezes o jogador acreditou que o universo falou com ele através de zeros e uns, através da eletricidade das palavras, através de palavras rolando numa tela no fim de um sonho
+E o universo disse eu te amo
+E o universo disse que você jogou bem o jogo
+E o universo disse que tudo o que você precisa está dentro de você
+E o universo disse que você é mais forte do que imagina
+E o universo disse que você é a luz do dia
+E o universo disse que você é a noite
+E o universo disse que as trevas contra as quais você luta estão dentro de você
+E o universo disse que a luz que você procura está dentro de você
+E o universo disse que você não está sozinho
+E o universo disse que você não está separado de qualquer outra coisa
+E o universo disse que você é o universo provando a si mesmo, falando consigo mesmo, lendo o seu próprio código
+E o universo disse eu te amo porque você é amor.
+E o jogo acabou e o jogador acordou do sonho. E o jogador começou um novo sonho. E o jogador sonhou novamente, sonhou melhor. E o jogador era o universo. E o jogador era amor.
+Você é o jogador.
+Acorde.
+    </div>
+  </div>
+
+  <audio id="audio" src="a.mp3" preload="auto" loop></audio>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const lyrics = document.getElementById('lyrics');
+    const viewport = document.querySelector('.viewport');
+    const startPrompt = document.getElementById('startPrompt');
+
+    let animationFrame;
+    let speed = 0;
+    let hasStarted = false;
+
+    function calculateSpeed() {
+      const totalDistance = (lyrics.offsetHeight + viewport.offsetHeight) * 1.1; 
+      const duration = audio.duration;
+      if (duration > 0 && totalDistance > 0) {
+        speed = totalDistance / duration;
+      }
+    }
+
+    function updatePosition() {
+      if (!audio.paused) {
+        const currentY = audio.currentTime * speed;
+        lyrics.style.transform = `translateY(-${currentY}px)`;
+        animationFrame = requestAnimationFrame(updatePosition);
+      }
+    }
+
+    let windAudioCtx, windGainNode;
+
+    function startWindSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        windAudioCtx = new AudioContext();
+        
+        const bufferSize = windAudioCtx.sampleRate * 2;
+        const noiseBuffer = windAudioCtx.createBuffer(1, bufferSize, windAudioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+
+        const whiteNoise = windAudioCtx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        whiteNoise.loop = true;
+
+        const filter = windAudioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 350;
+
+        windGainNode = windAudioCtx.createGain();
+        windGainNode.gain.value = 0.03;
+
+        whiteNoise.connect(filter);
+        filter.connect(windGainNode);
+        windGainNode.connect(windAudioCtx.destination);
+
+        whiteNoise.start();
+      } catch (e) {}
+    }
+
+    const canvas = document.getElementById('windCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.length = Math.random() * 40 + 20;
+        this.speed = Math.random() * 1.5 + 0.5;
+        this.opacity = Math.random() * 0.25 + 0.05;
+      }
+      update() {
+        this.x += this.speed * 2;
+        this.y -= this.speed * 0.3;
+        if (this.x > canvas.width || this.y < 0) {
+          this.reset();
+          this.x = -this.length;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.length, this.y - (this.length * 0.15));
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    for (let i = 0; i < 40; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateWind() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateWind);
+    }
+    animateWind();
+
+    function triggerExperience() {
+      if (hasStarted) return;
+      
+      calculateSpeed();
+      startWindSound();
+      audio.play().then(() => {
+        hasStarted = true;
+        startPrompt.classList.add('fade-out');
+        cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(updatePosition);
+      }).catch(e => {});
+    }
+
+    window.addEventListener('load', () => {
+      calculateSpeed();
+      audio.play().then(() => {
+        hasStarted = true;
+        startWindSound();
+        startPrompt.classList.add('fade-out');
+        animationFrame = requestAnimationFrame(updatePosition);
+      }).catch(() => {});
+    });
+
+    audio.addEventListener('loadedmetadata', calculateSpeed);
+
+    window.addEventListener('click', () => {
+      if (!hasStarted) {
+        triggerExperience();
+      }
+    });
+  </script>
+</body>
+</html>
